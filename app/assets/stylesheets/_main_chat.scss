@@ -1,0 +1,113 @@
+.chat-main {
+  height: 100vh;
+  width: calc(100vw - 300px);
+  float: left;
+  .main-header{
+    height: 100px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eee;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    &__left-box{
+      margin-top: 35px;
+      &__current-group{
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 15px;
+      }
+      &__member-list{
+        display: flex;
+        font-size: 12px;
+        color: #999999;
+      }
+    }
+    a {
+      color: #38aef0;
+      .main-header__edit-btn{
+        height: 40px;
+        line-height: 40px;
+        padding: 0 20px;
+        margin-top: 30px;
+        border: solid 1px #38aef0;
+        position: absolute;
+        right: 40px;
+       }
+      }
+    }
+  }
+  .messages{
+    height: calc(100vh - 190px);
+    background-color: #fafafa;
+    padding: 46px 40px;
+    .message{
+      padding-bottom: 40px;
+      &__upper-info{
+        display: flex;
+        margin-bottom: 10px;
+        &__talker{
+        color: #333333;
+        font-size: 16px;
+        font-weight: bold;
+        }
+        &__date{
+          color: #999999;
+          font-size: 12px;
+          margin-left: 10px;
+        }
+      }
+      &__text{
+        color: #434a54;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .form {
+    height: 90px;
+    background-color: #ddd;
+    padding: 20px 40px;
+    form{
+      display: flex;
+      .input-box{
+        position: relative;
+        width: 100%;
+        &__text{
+          width: 100%;
+          background-color: #fafafa;
+          height: 50px;
+          padding: 0 40px 0 10px;
+          color: #434a54;
+          border-style: none;
+          line-height: 50px;
+          cursor: pointer;
+        }
+        &__image{
+          font-size: 1.3rem;
+          position: absolute;
+          top: 13px;
+          right: 10px;
+          cursor: pointer;
+          .fa{
+            display: inline-block;
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+          }
+          .input-box__image__file{
+            display: none;
+          }
+        }
+      }
+      .submit-btn{
+        width: 100px;
+        height: 50px;
+        background-color: #38aef0;
+        color: white;
+        margin-left: 15px;
+        padding: 0 30px;
+        cursor: pointer;
+      }
+  }
+  }
