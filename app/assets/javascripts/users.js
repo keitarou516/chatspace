@@ -38,10 +38,16 @@ $(function(){
       data: { keyword: input }
     })
     .done(function(users){
+      let groupUserNames = document.querySelectorAll(".userName")
+      let groupUserName= groupUserNames.forEach(function(name){
+                          let username = name.innerHTML
+                          console.log(username);
+                          })
       $("#user-search-result").empty();
-      if (users.length !== 0){
+      if (users.length !== 0 && groupUserName !== input){
         users.forEach(function(user){
           addUser(user);
+          console.log(input);
         });
       } else if (input.length == 0){
         return false; 
@@ -55,7 +61,6 @@ $(function(){
   });
 
   $(document).on("click", ".chat-group-user__btn--add",function(){
-    console.log("イベント発火")
     const userName = $(this).attr("data-user-name");
     const userId = $(this).attr("data-user-id");
     $(this).parent().remove();

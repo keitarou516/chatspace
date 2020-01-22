@@ -9,7 +9,7 @@
             %li= message
     .chat-group-form__field
       .chat-group-form__field--left
-        = f.label :name, "グループ名"
+        = f.label :グループ名, class: 'chat-group-form__label'
       .chat-group-form__field--right
         = f.text_field :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください"
       -#<!-- この部分はインクリメンタルサーチ(ユーザー追加の非同期化)のときに使用します  -->
@@ -33,7 +33,7 @@
             -if current_user.name != user.name
               .chat-group-user.clearfix.js-chat-member
                 %input{name: "group[user_ids][]", type: "hidden", value: user.id}
-                %p.chat-group-user__name
+                %p.chat-group-user__name.userName
                   = user.name
                 %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn
                   削除
