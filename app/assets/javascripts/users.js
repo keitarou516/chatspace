@@ -18,10 +18,10 @@ $(function(){
   }
   function addDeleteUser(name, id) {
     let html = `
-    <div class="chat-group-user clearfix" id="${id}">
-      <p class="chat-group-user__name">${name}</p>
-      <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn" data-user-id="${id}" data-user-name="${name}">削除</div>
-    </div>`;
+      <div class="chat-group-user clearfix" id="${id}">
+        <p class="chat-group-user__name">${name}</p>
+        <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn" data-user-id="${id}" data-user-name="${name}">削除</div>
+      </div>`;
     $(".js-add-user").append(html);
   }
   function addMember(userId) {
@@ -29,22 +29,24 @@ $(function(){
     $(`#${userId}`).append(html);
   }
 
+  //データ検索の修正
   $("#user-search-field").on('keyup', function(){
     var input = $('#user-search-field').val();
+    var user_Ids = [];
+    user_ids = document.querySelectorAll('.group-user-id input');
+    user_ids.forEach(function(user_id){
+     user_ids = user_id.getAttribute('value');
+      user_Ids.push(user_ids);
+    });
     $.ajax({
       type: "GET",
       url: "/users",
       dataType: "json",
-      data: { keyword: input }
+      data: { keyword: input, user_ids: user_Ids },
     })
     .done(function(users){
-      let groupUserNames = document.querySelectorAll(".userName")
-      let groupUserName= groupUserNames.forEach(function(name){
-                          let username = name.innerHTML
-                          console.log(username);
-                          })
       $("#user-search-result").empty();
-      if (users.length !== 0 && groupUserName !== input){
+      if (users.length !== 0 ){
         users.forEach(function(user){
           addUser(user);
           console.log(input);
